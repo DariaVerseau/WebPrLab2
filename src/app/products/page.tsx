@@ -20,7 +20,6 @@ export default async function ProductsPage({ searchParams }: { searchParams: any
     });
   } catch (error) {
     console.error(error);
-    // Можно показать error boundary, но для простоты — fallback
     return <div className="p-6 text-red-600">Ошибка загрузки данных</div>;
   }
 
