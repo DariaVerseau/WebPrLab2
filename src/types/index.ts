@@ -1,16 +1,42 @@
-export type Product = {
+export interface Product {
   id: string;
   name: string;
-  price: number;
-  stock: number;
-  description?: string;
-  isActive: boolean;
-};
+  unit: string;
+  categoryId: string;
+  category?: {
+    id: string;
+    name: string;
+  };
+  supplierId: string;
+  supplier?: {
+    id: string;
+    name: string;
+  };
+  totalQuantity: number;
+  isVisible: boolean;
+  description?: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
 
-export type PagedResponse<T> = {
+export interface Category {
+  id: string;
+  name: string;
+  description?: string;
+}
+
+export interface Supplier {
+  id: string;
+  name: string;
+  contactInfo?: string;
+  phone?: string;
+  email?: string;
+  address?: string;
+}
+
+export interface PagedResponse<T> {
   items: T[];
-  total: number;
+  totalCount: number;
   page: number;
   pageSize: number;
-  totalPages: number;
-};
+}
